@@ -3,624 +3,495 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Formulario de Onboarding — Sistema De Vuelta</title>
+<title>Sistema De Vuelta — Dra. Marcela Alfaro</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-html { font-size: 16px; }
-
 :root {
-  --navy:   #0A1628;
-  --teal:   #028090;
-  --teal2:  #0FB4C8;
-  --gold:   #C9A84C;
-  --cream:  #F8F4EE;
-  --warm:   #EDE7DC;
-  --white:  #FFFFFF;
-  --text:   #1A1A2E;
-  --muted:  #6B7280;
-  --border: #D1C9BE;
+  --navy:  #0A1628;
+  --teal:  #028090;
+  --teal2: #0FB4C8;
+  --gold:  #C9A84C;
+  --cream: #F8F4EE;
+  --warm:  #EDE7DC;
+  --white: #FFFFFF;
+  --text:  #1A1A2E;
+  --muted: #6B7280;
+  --border:#D1C9BE;
 }
+body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--text); }
 
-body {
-  font-family: 'DM Sans', sans-serif;
-  background: var(--cream);
-  color: var(--text);
-  min-height: 100vh;
-}
-
-/* ── PRINT ── */
 @media print {
   .no-print { display: none !important; }
   body { background: white; }
   .page { box-shadow: none; margin: 0; border-radius: 0; }
-  .workflow-section { page-break-inside: avoid; }
 }
 
-/* ── HEADER ── */
 .doc-header {
   background: var(--navy);
-  padding: 2.5rem 4rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  padding: 2rem 4rem;
+  display: flex; align-items: center; justify-content: space-between;
 }
-
 .doc-header-logo {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 1.4rem;
-  font-weight: 600;
-  color: var(--white);
-  letter-spacing: 0.04em;
+  font-size: 1.3rem; font-weight: 600; color: var(--white);
 }
-
 .doc-header-logo span { color: var(--teal2); }
+.doc-header-right { text-align: right; }
+.doc-header-right p { font-size: 0.78rem; color: rgba(255,255,255,0.4); margin-bottom: 0.2rem; }
+.doc-header-right strong { font-size: 0.85rem; color: var(--teal2); }
 
-.doc-header-meta {
-  text-align: right;
-}
-
-.doc-header-meta p {
-  font-size: 0.8rem;
-  color: rgba(255,255,255,0.5);
-  margin-bottom: 0.2rem;
-}
-
-.doc-header-meta strong {
-  font-size: 0.85rem;
-  color: var(--teal2);
-}
-
-/* ── PAGE ── */
 .page {
-  max-width: 900px;
-  margin: 2rem auto;
-  background: var(--white);
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 4px 40px rgba(10,22,40,0.1);
+  max-width: 920px; margin: 2rem auto;
+  background: var(--white); border-radius: 8px;
+  overflow: hidden; box-shadow: 0 4px 40px rgba(10,22,40,0.1);
 }
 
-/* ── INTRO ── */
 .intro {
   background: var(--navy);
   padding: 2.5rem 3rem;
-  position: relative;
-  overflow: hidden;
+  position: relative; overflow: hidden;
 }
-
 .intro::before {
-  content: '';
-  position: absolute;
-  top: -50%; right: -10%;
+  content: ''; position: absolute; top: -50%; right: -10%;
   width: 400px; height: 400px;
   background: radial-gradient(circle, rgba(2,128,144,0.15) 0%, transparent 70%);
   pointer-events: none;
 }
-
 .intro-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: rgba(15,180,200,0.15);
-  border: 1px solid rgba(15,180,200,0.3);
-  color: var(--teal2);
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  padding: 0.3rem 0.9rem;
-  border-radius: 2px;
-  margin-bottom: 1rem;
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background: rgba(15,180,200,0.12); border: 1px solid rgba(15,180,200,0.25);
+  color: var(--teal2); font-size: 0.68rem; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  padding: 0.28rem 0.85rem; border-radius: 2px; margin-bottom: 1rem;
 }
-
 .intro h1 {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 2rem;
-  font-weight: 300;
-  color: var(--white);
-  line-height: 1.2;
-  margin-bottom: 0.75rem;
+  font-size: 1.9rem; font-weight: 300; color: var(--white);
+  line-height: 1.2; margin-bottom: 0.65rem;
 }
+.intro h1 em { font-style: italic; color: var(--teal2); }
+.intro p { font-size: 0.86rem; color: rgba(255,255,255,0.45); line-height: 1.7; max-width: 560px; }
 
-.intro h1 em {
-  font-style: italic;
-  color: var(--teal2);
-}
+.form-body { padding: 2.5rem 3rem; }
 
-.intro p {
-  font-size: 0.88rem;
-  color: rgba(255,255,255,0.5);
-  line-height: 1.7;
-  max-width: 560px;
-}
-
-/* ── FORM BODY ── */
-.form-body {
-  padding: 2.5rem 3rem;
-}
-
-/* ── SECTION ── */
-.form-section {
-  margin-bottom: 2.5rem;
-}
-
+.form-section { margin-bottom: 2.5rem; }
 .section-header {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
-  padding-bottom: 0.75rem;
+  display: flex; align-items: center; gap: 1rem;
+  margin-bottom: 1.5rem; padding-bottom: 0.75rem;
   border-bottom: 1px solid var(--warm);
 }
-
 .section-num {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background: var(--teal);
-  color: white;
-  font-size: 0.78rem;
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
+  width: 30px; height: 30px; border-radius: 50%;
+  background: var(--teal); color: white;
+  font-size: 0.75rem; font-weight: 700;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
 }
-
 .section-title {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 1.3rem;
-  font-weight: 600;
-  color: var(--text);
+  font-size: 1.25rem; font-weight: 600; color: var(--text);
 }
+.section-subtitle { font-size: 0.76rem; color: var(--muted); margin-top: 0.1rem; }
 
-.section-subtitle {
-  font-size: 0.78rem;
-  color: var(--muted);
-  margin-top: 0.15rem;
-}
-
-/* ── QUESTIONS ── */
-.questions {
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-}
-
-.question {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.question label {
-  font-size: 0.85rem;
-  font-weight: 500;
-  color: var(--text);
-  line-height: 1.4;
-}
-
-.question label span {
-  font-weight: 400;
-  color: var(--muted);
-  font-size: 0.78rem;
-  display: block;
-  margin-top: 0.15rem;
-}
+.questions { display: flex; flex-direction: column; gap: 1.2rem; }
+.question { display: flex; flex-direction: column; gap: 0.45rem; }
+.question label { font-size: 0.84rem; font-weight: 500; color: var(--text); line-height: 1.4; }
+.question label span { font-weight: 400; color: var(--muted); font-size: 0.76rem; display: block; margin-top: 0.12rem; }
 
 .answer-line {
-  border: none;
-  border-bottom: 1.5px solid var(--border);
-  padding: 0.6rem 0;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 0.88rem;
-  color: var(--text);
-  background: transparent;
-  width: 100%;
-  outline: none;
-  transition: border-color 0.2s;
+  border: none; border-bottom: 1.5px solid var(--border);
+  padding: 0.55rem 0; font-family: 'DM Sans', sans-serif;
+  font-size: 0.86rem; color: var(--text); background: transparent;
+  width: 100%; outline: none; transition: border-color 0.2s;
 }
-
-.answer-line:focus {
-  border-bottom-color: var(--teal);
-}
-
-.answer-line::placeholder {
-  color: var(--border);
-  font-style: italic;
-}
+.answer-line:focus { border-bottom-color: var(--teal); }
+.answer-line::placeholder { color: var(--border); font-style: italic; }
 
 .answer-area {
-  border: 1.5px solid var(--border);
-  border-radius: 4px;
-  padding: 0.75rem 1rem;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 0.88rem;
-  color: var(--text);
-  background: var(--cream);
-  width: 100%;
-  outline: none;
-  resize: vertical;
-  min-height: 80px;
+  border: 1.5px solid var(--border); border-radius: 4px;
+  padding: 0.7rem 1rem; font-family: 'DM Sans', sans-serif;
+  font-size: 0.86rem; color: var(--text); background: var(--cream);
+  width: 100%; outline: none; resize: vertical; min-height: 75px;
   transition: border-color 0.2s;
 }
+.answer-area:focus { border-color: var(--teal); }
 
-.answer-area:focus {
-  border-color: var(--teal);
-}
+.q-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
 
-.q-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.25rem;
-}
-
-/* ── PRODUCTS TABLE ── */
-.products-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 0.84rem;
-}
-
+.products-table { width: 100%; border-collapse: collapse; font-size: 0.83rem; }
 .products-table th {
-  background: var(--navy);
-  color: rgba(255,255,255,0.7);
-  padding: 0.65rem 1rem;
-  text-align: left;
-  font-size: 0.72rem;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  background: var(--navy); color: rgba(255,255,255,0.65);
+  padding: 0.6rem 1rem; text-align: left;
+  font-size: 0.7rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
 }
-
-.products-table td {
-  padding: 0.5rem 1rem;
-  border-bottom: 1px solid var(--warm);
-  vertical-align: middle;
-}
-
-.products-table tr:last-child td {
-  border-bottom: none;
-}
-
-.products-table tr:nth-child(even) td {
-  background: var(--cream);
-}
-
+.products-table td { padding: 0.45rem 1rem; border-bottom: 1px solid var(--warm); vertical-align: middle; }
+.products-table tr:last-child td { border-bottom: none; }
+.products-table tr:nth-child(even) td { background: var(--cream); }
 .products-table input {
-  border: none;
-  border-bottom: 1px solid var(--border);
-  background: transparent;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 0.84rem;
-  color: var(--text);
-  width: 100%;
-  padding: 0.3rem 0;
-  outline: none;
+  border: none; border-bottom: 1px solid var(--border);
+  background: transparent; font-family: 'DM Sans', sans-serif;
+  font-size: 0.83rem; color: var(--text); width: 100%; padding: 0.28rem 0; outline: none;
 }
+.products-table input:focus { border-bottom-color: var(--teal); }
 
-.products-table input:focus {
-  border-bottom-color: var(--teal);
-}
+.divider { height: 1px; background: var(--warm); margin: 2rem 0; }
 
-/* ── DIVIDER ── */
-.divider {
-  height: 1px;
-  background: var(--warm);
-  margin: 2rem 0;
-}
-
-/* ── NOTE BOX ── */
 .note-box {
-  background: rgba(2,128,144,0.06);
-  border: 1px solid rgba(2,128,144,0.2);
-  border-radius: 6px;
-  padding: 1rem 1.25rem;
-  display: flex;
-  gap: 0.75rem;
-  align-items: flex-start;
-  margin-top: 1rem;
+  background: rgba(2,128,144,0.05); border: 1px solid rgba(2,128,144,0.18);
+  border-radius: 6px; padding: 0.9rem 1.1rem;
+  display: flex; gap: 0.7rem; align-items: flex-start; margin-top: 1rem;
 }
-
-.note-box-icon {
-  color: var(--teal);
-  font-size: 1rem;
-  flex-shrink: 0;
-  margin-top: 1px;
-}
-
-.note-box p {
-  font-size: 0.82rem;
-  color: var(--muted);
-  line-height: 1.6;
-}
-
+.note-box p { font-size: 0.8rem; color: var(--muted); line-height: 1.6; }
 .note-box strong { color: var(--teal); }
 
-/* ════════════════════════════════════════
-   WORKFLOWS
-════════════════════════════════════════ */
+/* ── QR EXPLAINER ── */
+.qr-explainer {
+  background: var(--navy);
+  border-radius: 10px;
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+}
+.qr-explainer-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem; font-weight: 600; color: var(--white);
+  margin-bottom: 0.4rem;
+}
+.qr-explainer-sub { font-size: 0.8rem; color: rgba(255,255,255,0.4); margin-bottom: 1.5rem; }
+
+.qr-flow {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
+  position: relative;
+}
+.qr-flow::before {
+  content: '';
+  position: absolute;
+  top: 24px; left: 12.5%; right: 12.5%;
+  height: 1px;
+  background: rgba(15,180,200,0.25);
+  z-index: 0;
+}
+.qr-step {
+  display: flex; flex-direction: column; align-items: center;
+  text-align: center; padding: 0 0.5rem;
+  position: relative; z-index: 1;
+}
+.qr-step-icon {
+  width: 48px; height: 48px; border-radius: 50%;
+  background: var(--teal); color: white;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.2rem; margin-bottom: 0.75rem;
+  border: 2px solid var(--navy);
+}
+.qr-step-title {
+  font-size: 0.8rem; font-weight: 600;
+  color: rgba(255,255,255,0.85); margin-bottom: 0.3rem;
+}
+.qr-step-desc { font-size: 0.72rem; color: rgba(255,255,255,0.4); line-height: 1.5; }
+
+/* ── PATIENT FORM PREVIEW ── */
+.form-preview-wrap {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;
+  margin-top: 1rem;
+}
+.phone-mockup {
+  background: #1A1A2E;
+  border-radius: 24px;
+  padding: 1.5rem 1rem;
+  border: 6px solid #2A2A3E;
+  position: relative;
+}
+.phone-mockup::before {
+  content: '';
+  position: absolute;
+  top: 10px; left: 50%; transform: translateX(-50%);
+  width: 40px; height: 4px;
+  background: rgba(255,255,255,0.1); border-radius: 2px;
+}
+.phone-header {
+  text-align: center; margin-bottom: 1rem; padding-top: 0.5rem;
+}
+.phone-header-logo {
+  font-size: 0.7rem; color: rgba(255,255,255,0.4);
+  letter-spacing: 0.1em; text-transform: uppercase;
+}
+.phone-header-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem; font-weight: 600; color: var(--white);
+  margin-top: 0.25rem;
+}
+.phone-field { margin-bottom: 0.85rem; }
+.phone-field-label {
+  font-size: 0.65rem; color: rgba(255,255,255,0.4);
+  text-transform: uppercase; letter-spacing: 0.08em;
+  margin-bottom: 0.3rem;
+}
+.phone-field-input {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 6px; padding: 0.55rem 0.75rem;
+  font-size: 0.78rem; color: rgba(255,255,255,0.7);
+  width: 100%;
+}
+.phone-field-input.placeholder { color: rgba(255,255,255,0.25); font-style: italic; }
+.phone-select {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 6px; padding: 0.55rem 0.75rem;
+  font-size: 0.78rem; color: rgba(255,255,255,0.7);
+  width: 100%;
+}
+.phone-btn {
+  background: var(--teal); color: white;
+  border-radius: 6px; padding: 0.65rem;
+  text-align: center; font-size: 0.8rem; font-weight: 600;
+  margin-top: 0.5rem; cursor: pointer;
+}
+
+.form-notes {
+  display: flex; flex-direction: column; gap: 0.85rem;
+}
+.form-note-item {
+  display: flex; gap: 0.75rem; align-items: flex-start;
+}
+.form-note-num {
+  width: 24px; height: 24px; border-radius: 50%;
+  background: var(--teal); color: white;
+  font-size: 0.7rem; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; margin-top: 1px;
+}
+.form-note-text strong { font-size: 0.84rem; color: var(--text); display: block; margin-bottom: 0.15rem; }
+.form-note-text p { font-size: 0.78rem; color: var(--muted); line-height: 1.5; }
+
+/* ── WHATSAPP EXPLAINER ── */
+.channel-explanation {
+  background: var(--cream);
+  border: 1px solid var(--warm);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.channel-title {
+  font-size: 0.9rem; font-weight: 600; color: var(--text);
+  margin-bottom: 1rem;
+  display: flex; align-items: center; gap: 0.5rem;
+}
+.channel-comparison {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+}
+.channel-card {
+  border-radius: 6px; padding: 1rem;
+  border: 2px solid transparent;
+}
+.channel-card.winner {
+  background: rgba(2,128,144,0.06);
+  border-color: var(--teal);
+}
+.channel-card.loser {
+  background: rgba(107,114,128,0.05);
+  border-color: var(--border);
+  opacity: 0.7;
+}
+.channel-card-header {
+  display: flex; align-items: center; gap: 0.5rem;
+  font-size: 0.85rem; font-weight: 600; margin-bottom: 0.75rem;
+}
+.channel-card-header .badge {
+  font-size: 0.62rem; padding: 0.15rem 0.5rem;
+  border-radius: 2px; font-weight: 700;
+}
+.badge.rec { background: var(--teal); color: white; }
+.badge.no { background: var(--border); color: var(--muted); }
+.channel-card ul { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; }
+.channel-card ul li {
+  font-size: 0.78rem; color: var(--muted);
+  display: flex; align-items: flex-start; gap: 0.5rem; line-height: 1.4;
+}
+.channel-card ul li::before { content: '✓'; color: var(--teal); font-weight: 700; flex-shrink: 0; }
+.channel-card.loser ul li::before { content: '×'; color: var(--border); }
+
+/* ── WHATSAPP PREVIEW ── */
+.wa-preview-wrap {
+  background: #E5DDD5;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-top: 1rem;
+}
+.wa-header {
+  background: #075E54;
+  padding: 0.65rem 1rem;
+  display: flex; align-items: center; gap: 0.75rem;
+}
+.wa-avatar {
+  width: 34px; height: 34px; border-radius: 50%;
+  background: var(--teal2);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.75rem; font-weight: 700; color: white; flex-shrink: 0;
+}
+.wa-contact { flex: 1; }
+.wa-contact-name { font-size: 0.82rem; font-weight: 600; color: white; }
+.wa-contact-status { font-size: 0.68rem; color: rgba(255,255,255,0.6); }
+
+.wa-body { padding: 1rem; display: flex; flex-direction: column; gap: 0.75rem; }
+
+.wa-bubble {
+  max-width: 82%;
+  padding: 0.65rem 0.9rem;
+  border-radius: 8px;
+  font-size: 0.82rem; line-height: 1.6;
+  position: relative;
+}
+.wa-bubble.out {
+  background: #DCF8C6;
+  align-self: flex-end;
+  border-bottom-right-radius: 2px;
+  color: #1A1A1A;
+}
+.wa-bubble.in {
+  background: white;
+  align-self: flex-start;
+  border-bottom-left-radius: 2px;
+  color: #1A1A1A;
+}
+.wa-bubble .wa-time {
+  font-size: 0.62rem; color: rgba(0,0,0,0.35);
+  text-align: right; margin-top: 0.25rem;
+}
+.wa-bubble strong { font-weight: 600; }
+.wa-bubble .wa-check { color: #53BDEB; font-size: 0.7rem; }
+
+.wa-day-label {
+  text-align: center;
+  font-size: 0.68rem; color: rgba(0,0,0,0.4);
+  background: rgba(255,255,255,0.6);
+  padding: 0.2rem 0.8rem; border-radius: 8px;
+  align-self: center;
+}
+
+/* ── WORKFLOWS ── */
 .workflows-section {
   background: var(--navy);
   padding: 2.5rem 3rem;
 }
-
+.workflows-eyebrow {
+  font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--teal2); font-weight: 600; margin-bottom: 0.4rem;
+}
 .workflows-title {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 1.6rem;
-  font-weight: 300;
-  color: var(--white);
-  margin-bottom: 0.5rem;
+  font-size: 1.55rem; font-weight: 300; color: var(--white);
+  margin-bottom: 0.4rem;
 }
-
 .workflows-title em { color: var(--teal2); font-style: italic; }
+.workflows-sub { font-size: 0.83rem; color: rgba(255,255,255,0.35); margin-bottom: 2rem; }
 
-.workflows-sub {
-  font-size: 0.85rem;
-  color: rgba(255,255,255,0.4);
-  margin-bottom: 2rem;
-}
-
-/* ── WORKFLOW CARD ── */
 .workflow-card {
   background: rgba(255,255,255,0.04);
   border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 8px;
-  overflow: hidden;
-  margin-bottom: 1.5rem;
+  border-radius: 8px; overflow: hidden; margin-bottom: 1.5rem;
 }
-
 .workflow-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1.25rem 1.5rem;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1.1rem 1.4rem;
   border-bottom: 1px solid rgba(255,255,255,0.06);
 }
-
-.workflow-name {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-.workflow-icon {
-  font-size: 1.4rem;
-}
-
+.workflow-name { display: flex; align-items: center; gap: 0.7rem; }
+.workflow-icon { font-size: 1.3rem; }
 .workflow-title {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: var(--white);
-  display: block;
+  font-size: 1.15rem; font-weight: 600; color: var(--white); display: block;
 }
-
-.workflow-trigger {
-  font-size: 0.75rem;
-  color: var(--teal2);
-  font-weight: 500;
-}
-
+.workflow-trigger { font-size: 0.72rem; color: var(--teal2); font-weight: 500; }
 .workflow-badge {
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  padding: 0.3rem 0.8rem;
-  border-radius: 2px;
+  font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; padding: 0.28rem 0.75rem; border-radius: 2px;
 }
+.workflow-badge.botox { background: rgba(201,168,76,0.15); color: var(--gold); border: 1px solid rgba(201,168,76,0.3); }
+.workflow-badge.pelo { background: rgba(2,128,144,0.2); color: var(--teal2); border: 1px solid rgba(2,128,144,0.3); }
 
-.workflow-badge.botox {
-  background: rgba(201,168,76,0.15);
-  color: var(--gold);
-  border: 1px solid rgba(201,168,76,0.3);
-}
-
-.workflow-badge.pelo {
-  background: rgba(2,128,144,0.2);
-  color: var(--teal2);
-  border: 1px solid rgba(2,128,144,0.3);
-}
-
-/* ── TIMELINE ── */
-.timeline {
-  padding: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-}
-
-.timeline-item {
-  display: flex;
-  gap: 1.25rem;
-  position: relative;
-}
-
+.timeline { padding: 1.4rem; display: flex; flex-direction: column; }
+.timeline-item { display: flex; gap: 1.1rem; position: relative; }
 .timeline-item:not(:last-child)::before {
-  content: '';
-  position: absolute;
-  left: 15px;
-  top: 32px;
-  bottom: -8px;
-  width: 1px;
-  background: rgba(255,255,255,0.08);
+  content: ''; position: absolute;
+  left: 14px; top: 30px; bottom: -8px;
+  width: 1px; background: rgba(255,255,255,0.07);
 }
-
-.timeline-left {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  flex-shrink: 0;
-}
-
+.timeline-left { display: flex; flex-direction: column; align-items: center; flex-shrink: 0; }
 .timeline-dot {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
+  width: 30px; height: 30px; border-radius: 50%;
   background: var(--teal);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.72rem;
-  font-weight: 700;
-  color: white;
-  flex-shrink: 0;
-  position: relative;
-  z-index: 1;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.7rem; font-weight: 700; color: white;
+  position: relative; z-index: 1;
 }
-
 .timeline-dot.gold { background: var(--gold); }
-.timeline-dot.gray { background: rgba(255,255,255,0.15); }
+.timeline-dot.gray { background: rgba(255,255,255,0.12); }
+.timeline-day { font-size: 0.62rem; color: rgba(255,255,255,0.22); margin-top: 3px; white-space: nowrap; }
+.timeline-content { padding: 0.3rem 0 1.4rem; flex: 1; }
+.timeline-content-title { font-size: 0.86rem; font-weight: 600; color: rgba(255,255,255,0.82); margin-bottom: 0.25rem; }
+.timeline-content-desc { font-size: 0.78rem; color: rgba(255,255,255,0.38); line-height: 1.6; }
 
-.timeline-day {
-  font-size: 0.65rem;
-  color: rgba(255,255,255,0.25);
-  margin-top: 4px;
-  white-space: nowrap;
-}
-
-.timeline-content {
-  padding: 0.4rem 0 1.5rem;
-  flex: 1;
-}
-
-.timeline-content-title {
-  font-size: 0.88rem;
-  font-weight: 600;
-  color: rgba(255,255,255,0.85);
-  margin-bottom: 0.3rem;
-}
-
-.timeline-content-desc {
-  font-size: 0.8rem;
-  color: rgba(255,255,255,0.4);
-  line-height: 1.6;
-}
-
-/* ── MESSAGE PREVIEW ── */
 .msg-preview {
-  margin-top: 0.75rem;
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 6px;
-  padding: 0.85rem 1rem;
+  margin-top: 0.7rem;
+  background: rgba(255,255,255,0.055);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 6px; padding: 0.8rem 0.95rem;
   position: relative;
 }
-
 .msg-preview::before {
   content: 'WhatsApp';
-  position: absolute;
-  top: -8px;
-  left: 12px;
-  background: #25D366;
-  color: white;
-  font-size: 0.6rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  padding: 1px 6px;
-  border-radius: 2px;
+  position: absolute; top: -8px; left: 10px;
+  background: #25D366; color: white;
+  font-size: 0.58rem; font-weight: 700; letter-spacing: 0.08em;
+  padding: 1px 5px; border-radius: 2px;
 }
+.msg-preview p { font-size: 0.78rem; color: rgba(255,255,255,0.55); line-height: 1.7; font-style: italic; }
+.msg-preview strong { color: rgba(255,255,255,0.82); font-style: normal; }
 
-.msg-preview p {
-  font-size: 0.8rem;
-  color: rgba(255,255,255,0.6);
-  line-height: 1.7;
-  font-style: italic;
-}
-
-.msg-preview strong {
-  color: rgba(255,255,255,0.85);
-  font-style: normal;
-}
-
-/* ── WORKFLOW CONFIG ── */
 .workflow-config {
-  padding: 1rem 1.5rem;
+  padding: 0.9rem 1.4rem;
   background: rgba(255,255,255,0.02);
-  border-top: 1px solid rgba(255,255,255,0.06);
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem;
 }
+.config-item { text-align: center; }
+.config-label { font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.25); margin-bottom: 0.25rem; }
+.config-value { font-size: 0.88rem; font-weight: 600; color: var(--teal2); }
 
-.config-item {
-  text-align: center;
-}
-
-.config-label {
-  font-size: 0.65rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.3);
-  margin-bottom: 0.3rem;
-}
-
-.config-value {
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: var(--teal2);
-}
-
-/* ── FOOTER ── */
 .doc-footer {
-  padding: 1.5rem 3rem;
-  background: #060F1A;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  padding: 1.4rem 3rem; background: #060F1A;
+  display: flex; align-items: center; justify-content: space-between;
   border-top: 1px solid rgba(255,255,255,0.04);
 }
-
-.doc-footer p {
-  font-size: 0.75rem;
-  color: rgba(255,255,255,0.2);
-}
-
+.doc-footer p { font-size: 0.72rem; color: rgba(255,255,255,0.18); }
 .doc-footer strong { color: var(--teal2); }
 
-/* ── PRINT BTN ── */
 .print-btn {
-  position: fixed;
-  bottom: 2rem;
-  right: 2rem;
-  background: var(--teal);
-  color: white;
-  border: none;
-  padding: 0.85rem 1.75rem;
-  border-radius: 4px;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 0.88rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.2s;
-  box-shadow: 0 4px 20px rgba(2,128,144,0.4);
+  position: fixed; bottom: 2rem; right: 2rem;
+  background: var(--teal); color: white; border: none;
+  padding: 0.8rem 1.6rem; border-radius: 4px;
+  font-family: 'DM Sans', sans-serif; font-size: 0.86rem; font-weight: 500;
+  cursor: pointer; transition: all 0.2s;
+  box-shadow: 0 4px 20px rgba(2,128,144,0.35);
 }
-
-.print-btn:hover {
-  background: #0FB4C8;
-  transform: translateY(-2px);
-}
+.print-btn:hover { background: #0FB4C8; transform: translateY(-2px); }
 
 @media (max-width: 700px) {
   .doc-header { padding: 1.5rem; flex-direction: column; gap: 1rem; }
   .form-body { padding: 1.5rem; }
-  .q-grid { grid-template-columns: 1fr; }
-  .workflow-config { grid-template-columns: 1fr; }
+  .q-grid, .form-preview-wrap, .channel-comparison, .qr-flow { grid-template-columns: 1fr; }
   .workflows-section { padding: 1.5rem; }
-  .intro { padding: 1.5rem; }
+  .qr-flow::before { display: none; }
 }
 </style>
 </head>
 <body>
 
-<!-- HEADER -->
 <div class="doc-header">
   <div class="doc-header-logo">Medical Media <span>360</span></div>
-  <div class="doc-header-meta">
+  <div class="doc-header-right">
     <p>Sistema De Vuelta — Onboarding</p>
-    <strong>Formulario de configuración</strong>
+    <strong>Dra. Marcela Alfaro · @dra.marcederma</strong>
   </div>
 </div>
 
@@ -629,12 +500,273 @@ body {
   <!-- INTRO -->
   <div class="intro">
     <div class="intro-badge">✦ Sistema De Vuelta</div>
-    <h1>Cuéntanos cómo<br>funciona tu <em>clínica.</em></h1>
-    <p>Este formulario nos ayuda a configurar tu sistema de retención automatizada. Con tus respuestas montamos los flujos, los mensajes y el QR — todo listo para funcionar solo.</p>
+    <h1>Mientras tú cuidas de tus pacientes,<br>nosotros nos aseguramos de que<br><em>ellos no se olviden de ti.</em></h1>
+    <p style="margin-bottom:1rem;">Convierte pacientes ocasionales en pacientes para toda la vida.</p>
+
+    <p style="font-size:0.84rem; color:rgba(255,255,255,0.5); line-height:1.75; margin-bottom:1.25rem;">Sabes que muchos pacientes necesitan volver. Una consulta, una revisión, un tratamiento o simplemente seguimiento. Pero entre consultas, procedimientos y la gestión diaria de tu clínica, es imposible acordarte de todos. Y cada paciente que no regresa es una oportunidad perdida de ayudar, fidelizar y crecer.</p>
+
+    <div style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:1.25rem 1.5rem;">
+      <p style="font-size:0.75rem; font-weight:600; color:var(--teal2); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.85rem;">¿Te suena familiar?</p>
+      <div style="display:flex; flex-direction:column; gap:0.55rem;">
+        <div style="display:flex; gap:0.75rem; align-items:flex-start; font-size:0.82rem; color:rgba(255,255,255,0.55); line-height:1.5;">
+          <span style="color:var(--gold); flex-shrink:0; margin-top:1px;">·</span>
+          Pacientes que dicen "voy a agendar después" y nunca regresan.
+        </div>
+        <div style="display:flex; gap:0.75rem; align-items:flex-start; font-size:0.82rem; color:rgba(255,255,255,0.55); line-height:1.5;">
+          <span style="color:var(--gold); flex-shrink:0; margin-top:1px;">·</span>
+          Controles que se olvidan.
+        </div>
+        <div style="display:flex; gap:0.75rem; align-items:flex-start; font-size:0.82rem; color:rgba(255,255,255,0.55); line-height:1.5;">
+          <span style="color:var(--gold); flex-shrink:0; margin-top:1px;">·</span>
+          Tu secretaria invirtiendo horas en llamadas y mensajes.
+        </div>
+        <div style="display:flex; gap:0.75rem; align-items:flex-start; font-size:0.82rem; color:rgba(255,255,255,0.55); line-height:1.5;">
+          <span style="color:var(--gold); flex-shrink:0; margin-top:1px;">·</span>
+          Pacientes que desaparecen después de la primera consulta.
+        </div>
+        <div style="display:flex; gap:0.75rem; align-items:flex-start; font-size:0.82rem; color:rgba(255,255,255,0.55); line-height:1.5;">
+          <span style="color:var(--gold); flex-shrink:0; margin-top:1px;">·</span>
+          Falta de tiempo para dar el seguimiento que te gustaría dar.
+        </div>
+      </div>
+      <div style="margin-top:1.1rem; padding-top:1rem; border-top:1px solid rgba(255,255,255,0.07);">
+        <p style="font-size:0.9rem; color:rgba(255,255,255,0.85); font-weight:500;">No es un problema de atención.</p>
+        <p style="font-size:0.9rem; color:var(--teal2); font-weight:600;">Es un problema de tiempo.</p>
+      </div>
+    </div>
   </div>
 
   <!-- FORM BODY -->
   <div class="form-body">
+
+    <!-- SECCIÓN 0 — CÓMO FUNCIONA EL QR -->
+    <div class="form-section">
+      <div class="section-header">
+        <div class="section-num">→</div>
+        <div>
+          <div class="section-title">Cómo entra cada paciente al sistema</div>
+          <div class="section-subtitle">Antes de empezar — entiende el flujo completo en 4 pasos</div>
+        </div>
+      </div>
+
+      <div class="qr-explainer">
+        <div class="qr-explainer-title">El recorrido del paciente</div>
+        <div class="qr-explainer-sub">Desde que compra un producto, hace una cita o se realiza un procedimiento — hasta que recibe el recordatorio exacto en el momento exacto</div>
+
+        <div class="qr-flow">
+          <div class="qr-step">
+            <div class="qr-step-icon">🏥</div>
+            <div class="qr-step-title">Visita la clínica</div>
+            <div class="qr-step-desc">Compra un producto, agenda una cita o se realiza un procedimiento. En recepción o en la bolsa hay un QR impreso.</div>
+          </div>
+          <div class="qr-step">
+            <div class="qr-step-icon">📱</div>
+            <div class="qr-step-title">Escanea el QR</div>
+            <div class="qr-step-desc">Con la cámara de su celular. No necesita app. Abre un formulario en su navegador.</div>
+          </div>
+          <div class="qr-step">
+            <div class="qr-step-icon">✍️</div>
+            <div class="qr-step-title">Llena el formulario</div>
+            <div class="qr-step-desc">3 campos: nombre, WhatsApp y qué producto compró. 30 segundos.</div>
+          </div>
+          <div class="qr-step">
+            <div class="qr-step-icon">🤖</div>
+            <div class="qr-step-title">El sistema activa</div>
+            <div class="qr-step-desc">El CRM registra a la paciente y activa automáticamente el flujo del producto elegido.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FORMULARIO DE LA PACIENTE — MOCKUP -->
+      <p style="font-size:0.84rem; font-weight:500; color:var(--text); margin-bottom:0.75rem;">Así se ve el formulario en el celular de la paciente:</p>
+
+      <div class="form-preview-wrap">
+        <div class="phone-mockup">
+          <div class="phone-header">
+            <div class="phone-header-logo">Mas Dermatología · Dra. Marcela Alfaro</div>
+            <div class="phone-header-title">Registro de producto</div>
+          </div>
+
+          <div class="phone-field">
+            <div class="phone-field-label">Tu nombre</div>
+            <div class="phone-field-input">María González</div>
+          </div>
+
+          <div class="phone-field">
+            <div class="phone-field-label">Tu WhatsApp</div>
+            <div class="phone-field-input">+502 5555 1234</div>
+          </div>
+
+          <div class="phone-field">
+            <div class="phone-field-label">¿Qué hiciste hoy?</div>
+            <div class="phone-select">▾ &nbsp; Compré un producto / Me hice un procedimiento / Tuve consulta</div>
+          </div>
+
+          <div class="phone-field">
+            <div class="phone-field-label">¿Es tu primera visita con la Dra.?</div>
+            <div class="phone-select">▾ &nbsp; No, ya soy paciente</div>
+          </div>
+
+          <div class="phone-btn">Registrarme →</div>
+        </div>
+
+        <div class="form-notes">
+          <p style="font-size:0.82rem; font-weight:600; color:var(--text); margin-bottom:0.25rem;">¿Qué pasa cuando le da "Registrarme"?</p>
+          <div class="form-note-item">
+            <div class="form-note-num">1</div>
+            <div class="form-note-text">
+              <strong>Entra al CRM automáticamente</strong>
+              <p>Sus datos quedan guardados y clasificados por producto. Tú no tocas nada.</p>
+            </div>
+          </div>
+          <div class="form-note-item">
+            <div class="form-note-num">2</div>
+            <div class="form-note-text">
+              <strong>Se activa su flujo específico</strong>
+              <p>Según el producto que eligió, el sistema sabe cuándo mandarle el recordatorio.</p>
+            </div>
+          </div>
+          <div class="form-note-item">
+            <div class="form-note-num">3</div>
+            <div class="form-note-text">
+              <strong>Recibe un WhatsApp de bienvenida</strong>
+              <p>En las próximas horas le llega un mensaje con sus instrucciones de uso. Genera confianza desde el primer día.</p>
+            </div>
+          </div>
+          <div class="form-note-item">
+            <div class="form-note-num">4</div>
+            <div class="form-note-text">
+              <strong>El QR lo imprimimos nosotros</strong>
+              <p>Te entregamos el diseño listo para imprimir — tarjeta para la bolsa del producto y cartel para recepción.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CANAL: WHATSAPP VS EMAIL -->
+      <div class="channel-explanation" style="margin-top:1.5rem;">
+        <div class="channel-title">📬 ¿Los mensajes llegan por WhatsApp, por email — o por ambos?</div>
+        <div class="channel-comparison">
+          <div class="channel-card winner">
+            <div class="channel-card-header">
+              <span>💬 WhatsApp</span>
+              <span class="badge rec">Recomendado</span>
+            </div>
+            <ul>
+              <li>Tasa de apertura del 98% vs 20% del email</li>
+              <li>La paciente responde en segundos</li>
+              <li>Puede mandar el comprobante de pago aquí mismo</li>
+              <li>Es el canal que ya usa para todo</li>
+              <li>Los mensajes se ven más personales y cercanos</li>
+            </ul>
+          </div>
+          <div class="channel-card winner">
+            <div class="channel-card-header">
+              <span>📧 Email</span>
+              <span class="badge rec">Mailings y fidelización</span>
+            </div>
+            <ul>
+              <li>Boletín mensual con tips de skincare y rutinas estacionales</li>
+              <li>Novedades de la clínica, nuevos tratamientos o productos</li>
+              <li>Contenido educativo más largo y visualmente cuidado</li>
+              <li>Diseño con imagen de marca — refuerza autoridad de la Dra.</li>
+              <li>Ideal para pacientes que prefieren leer con calma</li>
+            </ul>
+          </div>
+        </div>
+        <div style="background:rgba(2,128,144,0.06); border:1px solid rgba(2,128,144,0.18); border-radius:6px; padding:0.85rem 1.1rem; margin-top:0.85rem; display:flex; gap:0.7rem; align-items:flex-start;">
+          <span style="font-size:1rem; flex-shrink:0;">💡</span>
+          <p style="font-size:0.78rem; color:var(--muted); line-height:1.6;"><strong style="color:var(--teal);">La combinación ideal:</strong> WhatsApp para lo urgente (renovar botox, recomprar pastillas, confirmar cita) + Email para construir relación a largo plazo (rutinas, tips, lanzamientos). Dos canales, un solo sistema, cero trabajo manual.</p>
+        </div>
+      </div>
+
+      <!-- WHATSAPP PREVIEW -->
+      <p style="font-size:0.84rem; font-weight:500; color:var(--text); margin: 1rem 0 0.5rem;">Así se ve la conversación en el celular de la paciente:</p>
+
+      <div class="wa-preview-wrap">
+        <div class="wa-header">
+          <div class="wa-avatar">MA</div>
+          <div class="wa-contact">
+            <div class="wa-contact-name">Dra. Marcela Alfaro · Mas Dermatología</div>
+            <div class="wa-contact-status">en línea</div>
+          </div>
+        </div>
+        <div class="wa-body">
+          <div class="wa-day-label">Hoy · Día 0</div>
+
+          <div class="wa-bubble in">
+            Hola <strong>María</strong> 👋 Gracias por tu visita con la Dra. Marcela hoy. Registramos tu protector solar SPF 50. Recuerda aplicarlo todas las mañanas como último paso de tu rutina, antes del maquillaje. Cualquier pregunta, aquí estamos 🤍
+            <div class="wa-time">10:32 am</div>
+          </div>
+
+          <div class="wa-day-label">Día 25</div>
+
+          <div class="wa-bubble in">
+            Hola <strong>María</strong> 💛 Tu protector solar ya va por la mitad — perfecto momento para que no te quedes sin él. Para que no interrumpas tu rutina, te lo llevamos a casa por <strong>Q25</strong> 🛵<br><br>
+            Para pedirlo solo transfiere <strong>Q[precio]</strong> a:<br>
+            📍 Banco Industrial · Cuenta 123-456789-0<br>
+            A nombre de: Marcela Alfaro<br><br>
+            Envíame el comprobante aquí y coordino el envío 📦
+            <div class="wa-time">9:05 am</div>
+          </div>
+
+          <div class="wa-bubble out">
+            Hola! Sí me interesa, ahorita te mando el comprobante 😊
+            <div class="wa-time">9:48 am <span class="wa-check">✓✓</span></div>
+          </div>
+
+          <div class="wa-bubble in">
+            Perfecto <strong>María</strong> ✨ En cuanto reciba el comprobante coordino el mensajero. Lo recibes hoy o mañana según disponibilidad. ¡Gracias por confiar en la Dra. Marcela! 🤍
+            <div class="wa-time">9:49 am</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="note-box" style="margin-top:1rem;">
+        <p>Los mensajes los <strong>redactamos nosotros</strong> con tu tono y tu voz. Tú solo los apruebas antes de activarlos. Las respuestas de tus pacientes llegan a un <strong>inbox centralizado</strong> donde tú o tu recepcionista pueden ver todo en un solo lugar.</p>
+      </div>
+
+      <!-- USO CASOS: PRODUCTOS + PROCEDIMIENTOS -->
+      <div style="margin-top:1.5rem;">
+        <p style="font-size:0.88rem; font-weight:600; color:var(--text); margin-bottom:1rem;">¿Para qué sirve el sistema? No solo para productos.</p>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+
+          <div style="background:var(--cream); border:1px solid var(--warm); border-radius:8px; padding:1.25rem;">
+            <div style="font-size:1.1rem; margin-bottom:0.5rem;">📦</div>
+            <div style="font-size:0.88rem; font-weight:600; color:var(--text); margin-bottom:0.4rem;">Recompra de productos</div>
+            <p style="font-size:0.78rem; color:var(--muted); line-height:1.6; margin-bottom:0.75rem;">El paciente compra un producto en clínica. El sistema le avisa cuando está por terminarse y gestiona el envío a domicilio.</p>
+            <div style="display:flex; flex-direction:column; gap:0.3rem;">
+              <div style="font-size:0.74rem; color:var(--muted); display:flex; align-items:center; gap:0.4rem;"><span style="color:var(--teal); font-weight:700;">✓</span> Protector solar, cremas, sérum</div>
+              <div style="font-size:0.74rem; color:var(--muted); display:flex; align-items:center; gap:0.4rem;"><span style="color:var(--teal); font-weight:700;">✓</span> Pastillas para el pelo, suplementos</div>
+              <div style="font-size:0.74rem; color:var(--muted); display:flex; align-items:center; gap:0.4rem;"><span style="color:var(--teal); font-weight:700;">✓</span> Retinol, ácidos, tratamientos tópicos</div>
+              <div style="font-size:0.74rem; color:var(--muted); display:flex; align-items:center; gap:0.4rem;"><span style="color:var(--teal); font-weight:700;">✓</span> Cualquier producto de venta en clínica</div>
+            </div>
+          </div>
+
+          <div style="background:var(--navy); border:1px solid rgba(15,180,200,0.2); border-radius:8px; padding:1.25rem;">
+            <div style="font-size:1.1rem; margin-bottom:0.5rem;">🗓️</div>
+            <div style="font-size:0.88rem; font-weight:600; color:var(--white); margin-bottom:0.4rem;">Recordatorio de procedimientos</div>
+            <p style="font-size:0.78rem; color:rgba(255,255,255,0.45); line-height:1.6; margin-bottom:0.75rem;">El paciente se hace un procedimiento. El sistema le recuerda cuándo es el momento de renovarlo — antes de que el efecto desaparezca.</p>
+            <div style="display:flex; flex-direction:column; gap:0.3rem;">
+              <div style="font-size:0.74rem; color:rgba(255,255,255,0.5); display:flex; align-items:center; gap:0.4rem;"><span style="color:var(--teal2); font-weight:700;">✓</span> Botox y toxina botulínica (cada 4-6 meses)</div>
+              <div style="font-size:0.74rem; color:rgba(255,255,255,0.5); display:flex; align-items:center; gap:0.4rem;"><span style="color:var(--teal2); font-weight:700;">✓</span> Rellenos de ácido hialurónico (cada 8-12 meses)</div>
+              <div style="font-size:0.74rem; color:rgba(255,255,255,0.5); display:flex; align-items:center; gap:0.4rem;"><span style="color:var(--teal2); font-weight:700;">✓</span> Peelings y limpiezas faciales (cada 30-60 días)</div>
+              <div style="font-size:0.74rem; color:rgba(255,255,255,0.5); display:flex; align-items:center; gap:0.4rem;"><span style="color:var(--teal2); font-weight:700;">✓</span> Tratamientos de láser, mesoterapia, bioestimuladores</div>
+              <div style="font-size:0.74rem; color:rgba(255,255,255,0.5); display:flex; align-items:center; gap:0.4rem;"><span style="color:var(--teal2); font-weight:700;">✓</span> Revisiones anuales de lunares o manchas</div>
+            </div>
+          </div>
+
+        </div>
+
+        <div style="background:rgba(201,168,76,0.07); border:1px solid rgba(201,168,76,0.2); border-radius:6px; padding:0.9rem 1.1rem; margin-top:1rem; display:flex; gap:0.75rem; align-items:flex-start;">
+          <span style="font-size:1rem; flex-shrink:0;">💡</span>
+          <p style="font-size:0.8rem; color:var(--muted); line-height:1.6;"><strong style="color:var(--gold);">La diferencia clave:</strong> para productos el sistema gestiona la recompra y el envío a domicilio. Para procedimientos gestiona el recordatorio de cita — el paciente responde y agenda directamente desde el WhatsApp. En ambos casos, <strong style="color:var(--text);">tú no haces nada hasta que el paciente confirma.</strong></p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="divider"></div>
 
     <!-- SECCIÓN 1 — PRODUCTOS -->
     <div class="form-section">
@@ -642,23 +774,19 @@ body {
         <div class="section-num">1</div>
         <div>
           <div class="section-title">Tus productos</div>
-          <div class="section-subtitle">Necesitamos conocer qué vendes para configurar los tiempos correctos de cada flujo</div>
+          <div class="section-subtitle">Esta información define los tiempos exactos de cada recordatorio</div>
         </div>
       </div>
-
       <div class="questions">
         <div class="question">
-          <label>¿Qué productos vendes actualmente en consulta?
-            <span>Lista todos los que el paciente puede comprar al salir de la clínica</span>
+          <label>¿Qué productos vendes actualmente en clínica?
+            <span>Lista todos los que la paciente puede comprar al salir</span>
           </label>
-          <textarea class="answer-area" placeholder="Ej: Protector solar SPF50, crema hidratante, sérum vitamina C, pastillas para el pelo, toxina botulínica..."></textarea>
+          <textarea class="answer-area" placeholder="Ej: Protector solar SPF50, crema hidratante, sérum vitamina C, pastillas para el pelo, retinol..."></textarea>
         </div>
-
         <div class="note-box">
-          <div class="note-box-icon">💡</div>
-          <p>Completa la siguiente tabla para cada producto. Esta información define exactamente <strong>cuándo le enviamos el recordatorio al paciente</strong> — si el producto dura 30 días, el mensaje sale el día 25.</p>
+          <p>Completa la tabla para cada producto. La duración define <strong>cuándo le enviamos el recordatorio</strong> — si dura 30 días, el mensaje sale el día 25.</p>
         </div>
-
         <table class="products-table">
           <thead>
             <tr>
@@ -687,18 +815,8 @@ body {
               <td><input type="text" placeholder="Q1,800" /></td>
               <td><input type="text" placeholder="Mes 5" /></td>
             </tr>
-            <tr>
-              <td><input type="text" placeholder="Agregar producto..." /></td>
-              <td><input type="text" /></td>
-              <td><input type="text" /></td>
-              <td><input type="text" /></td>
-            </tr>
-            <tr>
-              <td><input type="text" placeholder="Agregar producto..." /></td>
-              <td><input type="text" /></td>
-              <td><input type="text" /></td>
-              <td><input type="text" /></td>
-            </tr>
+            <tr><td><input type="text" placeholder="Agregar..." /></td><td><input type="text" /></td><td><input type="text" /></td><td><input type="text" /></td></tr>
+            <tr><td><input type="text" placeholder="Agregar..." /></td><td><input type="text" /></td><td><input type="text" /></td><td><input type="text" /></td></tr>
           </tbody>
         </table>
       </div>
@@ -715,36 +833,33 @@ body {
           <div class="section-subtitle">Para dimensionar el sistema correctamente</div>
         </div>
       </div>
-
       <div class="questions">
         <div class="q-grid">
           <div class="question">
-            <label>¿Cuántos pacientes ves al mes aproximadamente?</label>
+            <label>¿Cuántas pacientes ves al mes aproximadamente?</label>
             <input type="text" class="answer-line" placeholder="Ej: 80 pacientes" />
           </div>
           <div class="question">
-            <label>¿De esos, cuántos compran producto en cada consulta?</label>
+            <label>¿De esas, cuántas compran producto en cada consulta?</label>
             <input type="text" class="answer-line" placeholder="Ej: 20-30 pacientes" />
           </div>
         </div>
         <div class="question">
-          <label>¿Hay pacientes que vienen solo a recoger producto sin consulta?
-            <span>Esto nos ayuda a saber si necesitamos un flujo especial para ellos</span>
-          </label>
-          <input type="text" class="answer-line" placeholder="Sí / No / A veces — explica brevemente" />
-        </div>
-        <div class="question">
           <label>¿Cómo le hablas a tus pacientes — de tú o de usted?
-            <span>Los mensajes automáticos usarán el mismo trato que usas tú</span>
+            <span>Los mensajes automáticos usarán exactamente el mismo trato que usas tú</span>
           </label>
           <input type="text" class="answer-line" placeholder="De tú / De usted" />
+        </div>
+        <div class="question">
+          <label>¿Cómo te llaman tus pacientes?</label>
+          <input type="text" class="answer-line" placeholder="Ej: Dra. Marcela / Dra. Alfaro / solo Doctora" />
         </div>
       </div>
     </div>
 
     <div class="divider"></div>
 
-    <!-- SECCIÓN 3 — PAGOS Y ENVÍO -->
+    <!-- SECCIÓN 3 — PAGOS -->
     <div class="form-section">
       <div class="section-header">
         <div class="section-num">3</div>
@@ -753,14 +868,13 @@ body {
           <div class="section-subtitle">Esta información va directamente en los mensajes automáticos</div>
         </div>
       </div>
-
       <div class="questions">
         <div class="q-grid">
           <div class="question">
-            <label>¿Número de cuenta bancaria para transferencias?
-              <span>Banco + número de cuenta + nombre del titular</span>
+            <label>Número de cuenta para transferencias
+              <span>Banco + número + nombre del titular</span>
             </label>
-            <input type="text" class="answer-line" placeholder="Ej: Banrural — 1234567890 — Dra. García" />
+            <input type="text" class="answer-line" placeholder="Ej: BI · 001-123456-7 · Marcela Alfaro" />
           </div>
           <div class="question">
             <label>¿Aceptas efectivo además de transferencia?</label>
@@ -769,9 +883,21 @@ body {
         </div>
         <div class="question">
           <label>¿Tienes mensajero de confianza o necesitamos sugerir uno?
-            <span>El envío a domicilio cuesta Q25 y lo paga el paciente directamente</span>
+            <span>El envío cuesta Q25 y lo paga la paciente directamente</span>
           </label>
-          <input type="text" class="answer-line" placeholder="Tengo mensajero propio / Necesito uno / Uso Hugo/PedidosYa" />
+          <input type="text" class="answer-line" placeholder="Tengo mensajero propio / Necesito uno / Uso Hugo o PedidosYa" />
+        </div>
+        <div class="question">
+          <label>¿Tienes cuenta en Visalink o estarías dispuesta a crearla?
+            <span>Visalink permite crear un link de pago para cada producto — la paciente paga con tarjeta directamente desde el WhatsApp, sin transferencia bancaria. Mucho más fácil para ella y para ti.</span>
+          </label>
+          <input type="text" class="answer-line" placeholder="Sí, ya tengo Visalink / No tengo pero me interesa / No lo conozco — cuéntame más" />
+        </div>
+        <div class="question">
+          <label>Si tienes Visalink, ¿ya tienes tus productos cargados como links de pago?
+            <span>Si no los tienes, podemos ayudarte a configurarlos. Esto permite que el mensaje automático incluya directamente el botón de pago.</span>
+          </label>
+          <input type="text" class="answer-line" placeholder="Sí, tengo los links listos / No, necesito ayuda para configurarlos" />
         </div>
         <div class="question">
           <label>¿En qué zonas de la ciudad haces envíos?</label>
@@ -791,29 +917,22 @@ body {
           <div class="section-subtitle">Para que los mensajes suenen a ti, no a un robot</div>
         </div>
       </div>
-
       <div class="questions">
         <div class="question">
-          <label>¿Cómo te llaman tus pacientes — Doctora + apellido, solo doctora, por tu nombre?</label>
-          <input type="text" class="answer-line" placeholder="Ej: Dra. Martínez / Doctora / Dra. Laura" />
-        </div>
-        <div class="question">
-          <label>¿Hay algo que definitivamente NO quieres que digan los mensajes?
-            <span>Palabras, frases o temas que no se alinean con tu imagen</span>
+          <label>¿Tienes WhatsApp Business activo o usas WhatsApp personal?
+            <span>WhatsApp Business permite mensajes automáticos más robustos y un perfil de empresa</span>
           </label>
-          <textarea class="answer-area" placeholder="Ej: No quiero que mencionen precios en el primer mensaje / No quiero que suene agresivo en ventas..."></textarea>
+          <input type="text" class="answer-line" placeholder="Personal / WhatsApp Business — número: +502 ____ ____" />
         </div>
         <div class="question">
-          <label>¿El WhatsApp que usaremos es personal o tienes WhatsApp Business?
-            <span>WhatsApp Business permite mensajes automáticos más robustos</span>
-          </label>
-          <input type="text" class="answer-line" placeholder="Personal / WhatsApp Business — número: " />
-        </div>
-        <div class="question">
-          <label>¿Quién revisa los mensajes entrantes — tú directamente o la recepcionista?
-            <span>Cuando el paciente confirma el pago, alguien debe coordinar el mensajero</span>
+          <label>¿Quién revisa los mensajes entrantes — tú o la recepcionista?
+            <span>Cuando la paciente confirma el pago alguien debe coordinar el mensajero</span>
           </label>
           <input type="text" class="answer-line" placeholder="Yo misma / La recepcionista / Ambas" />
+        </div>
+        <div class="question">
+          <label>¿Hay algo que definitivamente NO quieres que digan los mensajes?</label>
+          <textarea class="answer-area" placeholder="Ej: No quiero que suene agresivo en ventas / No mencionar precios en el primer mensaje..."></textarea>
         </div>
       </div>
     </div>
@@ -825,29 +944,24 @@ body {
       <div class="section-header">
         <div class="section-num">5</div>
         <div>
-          <div class="section-title">Pacientes perdidos</div>
+          <div class="section-title">Pacientes que no responden</div>
           <div class="section-subtitle">Para configurar el flujo de reactivación</div>
         </div>
       </div>
-
       <div class="questions">
         <div class="question">
-          <label>¿Cuánto tiempo sin comprar considera que un paciente está "perdido"?
-            <span>Esto activa el mensaje de reactivación</span>
-          </label>
+          <label>¿Cuánto tiempo sin comprar consideras que una paciente está "perdida"?</label>
           <input type="text" class="answer-line" placeholder="Ej: 60 días / 90 días / 3 meses" />
         </div>
         <div class="question">
-          <label>¿Quieres que los pacientes reciban contenido educativo entre compras?
-            <span>Tips de cuidado, novedades, información relevante — no solo mensajes de venta</span>
+          <label>¿Quieres que las pacientes reciban contenido educativo entre compras?
+            <span>Tips de skincare, novedades, información relevante — no solo mensajes de venta</span>
           </label>
-          <input type="text" class="answer-line" placeholder="Sí, cada cuánto tiempo: ___ / No por ahora" />
+          <input type="text" class="answer-line" placeholder="Sí, cada cuánto: ___ / No por ahora" />
         </div>
       </div>
-
-      <div class="note-box">
-        <div class="note-box-icon">✦</div>
-        <p>Con toda esta información configuramos tu sistema completo en <strong>5-7 días hábiles</strong>. Después te hacemos una demo en vivo antes de activarlo con tus pacientes reales.</p>
+      <div class="note-box" style="margin-top:1rem;">
+        <p>Con toda esta información configuramos tu sistema completo en <strong>5-7 días hábiles</strong>. Antes de activarlo con pacientes reales te hacemos una demo en vivo para que apruebes cada mensaje.</p>
       </div>
     </div>
 
@@ -855,10 +969,9 @@ body {
 
   <!-- WORKFLOWS -->
   <div class="workflows-section">
-
-    <p style="font-size:0.7rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--teal2); margin-bottom:0.5rem; font-weight:600;">Flujos configurados para ti</p>
-    <h2 class="workflows-title">Así funcionan tus<br><em>workflows en Clientify.</em></h2>
-    <p class="workflows-sub">Dos flujos listos para activar. Solo necesitamos los datos del formulario de arriba.</p>
+    <div class="workflows-eyebrow">Flujos configurados para ti</div>
+    <h2 class="workflows-title">Así funcionan tus <em>flujos automáticos.</em></h2>
+    <p class="workflows-sub">Dos flujos listos para activar. Todo por WhatsApp. Nada manual.</p>
 
     <!-- WORKFLOW 1 — BOTOX -->
     <div class="workflow-card">
@@ -867,107 +980,71 @@ body {
           <div class="workflow-icon">💉</div>
           <div>
             <span class="workflow-title">Botox — Recordatorio de sesión</span>
-            <span class="workflow-trigger">Se activa cuando: paciente selecciona "Botox" en el formulario QR</span>
+            <span class="workflow-trigger">Activa cuando: paciente selecciona "Botox" en el formulario QR</span>
           </div>
         </div>
-        <span class="workflow-badge botox">6 meses</span>
+        <span class="workflow-badge botox">Ciclo 6 meses</span>
       </div>
-
       <div class="timeline">
-
         <div class="timeline-item">
-          <div class="timeline-left">
-            <div class="timeline-dot">✓</div>
-            <span class="timeline-day">Día 0</span>
-          </div>
+          <div class="timeline-left"><div class="timeline-dot">✓</div><span class="timeline-day">Día 0</span></div>
           <div class="timeline-content">
             <div class="timeline-content-title">Paciente entra al sistema</div>
-            <div class="timeline-content-desc">Escanea el QR, llena el formulario, selecciona "Botox". Clientify crea el contacto automáticamente en la lista "Botox" y activa el flujo.</div>
+            <div class="timeline-content-desc">Escanea QR → llena formulario → selecciona "Botox". El CRM crea el contacto y activa el flujo automáticamente.</div>
           </div>
         </div>
-
         <div class="timeline-item">
-          <div class="timeline-left">
-            <div class="timeline-dot">📧</div>
-            <span class="timeline-day">Día 7</span>
-          </div>
+          <div class="timeline-left"><div class="timeline-dot">💬</div><span class="timeline-day">Día 7</span></div>
           <div class="timeline-content">
-            <div class="timeline-content-title">Mensaje de bienvenida + cuidados post-sesión</div>
-            <div class="timeline-content-desc">Mensaje educativo sobre cuidados después de la aplicación. No vende nada — genera confianza.</div>
+            <div class="timeline-content-title">WhatsApp de bienvenida + cuidados post-sesión</div>
+            <div class="timeline-content-desc">Mensaje educativo. No vende nada — genera confianza y fideliza desde el inicio.</div>
             <div class="msg-preview">
-              <p>Hola <strong>[Nombre]</strong> 👋 Gracias por tu visita con la <strong>Dra. [Nombre]</strong>. Recuerda no realizar ejercicio intenso las primeras 24h y evitar acostarte boca abajo. Cualquier pregunta, aquí estamos.</p>
+              <p>Hola <strong>[Nombre]</strong> 👋 Gracias por tu sesión con la Dra. Marcela. Recuerda no realizar ejercicio intenso las primeras 24h y evitar acostarte boca abajo. Cualquier pregunta, aquí estamos 🤍</p>
             </div>
           </div>
         </div>
-
         <div class="timeline-item">
-          <div class="timeline-left">
-            <div class="timeline-dot">📧</div>
-            <span class="timeline-day">Mes 3</span>
-          </div>
+          <div class="timeline-left"><div class="timeline-dot">💬</div><span class="timeline-day">Mes 3</span></div>
           <div class="timeline-content">
             <div class="timeline-content-title">Contenido de valor — punto medio</div>
-            <div class="timeline-content-desc">Artículo o tip sobre mantenimiento de resultados. Posiciona a la doctora como referente sin vender.</div>
+            <div class="timeline-content-desc">Tip o artículo sobre mantenimiento de resultados. Posiciona a la Dra. como referente.</div>
             <div class="msg-preview">
-              <p>Hola <strong>[Nombre]</strong>, ya van 3 meses desde tu sesión 🌟 ¿Sabías que los mejores resultados del botox se mantienen con una rutina de hidratación constante? Te comparto 3 tips que marca la diferencia →</p>
+              <p>Hola <strong>[Nombre]</strong>, ya van 3 meses desde tu sesión 🌟 ¿Sabías que la hidratación constante potencia los resultados del botox? Te compartimos 3 tips que marcan la diferencia 👇</p>
             </div>
           </div>
         </div>
-
         <div class="timeline-item">
-          <div class="timeline-left">
-            <div class="timeline-dot gold">⏰</div>
-            <span class="timeline-day">Mes 5</span>
-          </div>
+          <div class="timeline-left"><div class="timeline-dot gold">⏰</div><span class="timeline-day">Mes 5</span></div>
           <div class="timeline-content">
-            <div class="timeline-content-title">🔑 Recordatorio de renovación — mensaje principal</div>
-            <div class="timeline-content-desc">El mensaje más importante del flujo. Llega en el momento exacto en que el efecto está por desaparecer.</div>
+            <div class="timeline-content-title">🔑 Recordatorio de renovación — mensaje clave</div>
+            <div class="timeline-content-desc">Llega en el momento exacto en que el efecto está por desaparecer. Este es el mensaje que convierte.</div>
             <div class="msg-preview">
-              <p>Hola <strong>[Nombre]</strong> 💫 Han pasado casi 6 meses desde tu sesión con la Dra. [Nombre]. Es el momento ideal para renovar tus resultados antes de que el efecto se pierda completamente. <strong>¿Agendamos tu próxima cita esta semana?</strong> Responde con tu disponibilidad y te confirmamos.</p>
+              <p>Hola <strong>[Nombre]</strong> 💫 Han pasado casi 6 meses desde tu sesión con la Dra. Marcela. Es el momento ideal para renovar resultados antes de que el efecto desaparezca. <strong>¿Agendamos esta semana?</strong> Responde con tu disponibilidad y te confirmamos.</p>
             </div>
           </div>
         </div>
-
         <div class="timeline-item">
-          <div class="timeline-left">
-            <div class="timeline-dot gray">💬</div>
-            <span class="timeline-day">Mes 5+7d</span>
-          </div>
+          <div class="timeline-left"><div class="timeline-dot gray">💬</div><span class="timeline-day">Mes 5 +7d</span></div>
           <div class="timeline-content">
             <div class="timeline-content-title">Seguimiento si no respondió</div>
-            <div class="timeline-content-desc">Un solo mensaje de seguimiento. Si no responde a este, el flujo se pausa automáticamente.</div>
+            <div class="timeline-content-desc">Un solo recordatorio más. Si no responde, el flujo se pausa automáticamente.</div>
             <div class="msg-preview">
-              <p><strong>[Nombre]</strong>, te escribimos de nuevo por si no viste nuestro mensaje 🙏 Tenemos disponibilidad esta semana para tu sesión de botox. Si prefieres otro momento, dinos cuándo y te buscamos agenda.</p>
+              <p><strong>[Nombre]</strong>, por si no viste nuestro mensaje 🙏 Tenemos disponibilidad esta semana. Si prefieres otro momento, dinos cuándo y te buscamos agenda.</p>
             </div>
           </div>
         </div>
-
         <div class="timeline-item">
-          <div class="timeline-left">
-            <div class="timeline-dot">🔄</div>
-            <span class="timeline-day">Mes 6</span>
-          </div>
+          <div class="timeline-left"><div class="timeline-dot">🔄</div><span class="timeline-day">Mes 6</span></div>
           <div class="timeline-content">
             <div class="timeline-content-title">Reinicio del ciclo</div>
-            <div class="timeline-content-desc">Si el paciente agenda, el flujo se reinicia desde el Día 0 automáticamente con la nueva sesión.</div>
+            <div class="timeline-content-desc">Si agenda, el flujo se reinicia desde Día 0 con la nueva sesión. Ciclo permanente.</div>
           </div>
         </div>
-
       </div>
-
       <div class="workflow-config">
-        <div class="config-item">
-          <div class="config-label">Duración del ciclo</div>
-          <div class="config-value">6 meses</div>
-        </div>
-        <div class="config-item">
-          <div class="config-label">Mensajes totales</div>
-          <div class="config-value">4 mensajes</div>
-        </div>
-        <div class="config-item">
-          <div class="config-label">Acción requerida</div>
-          <div class="config-value">Agendar cita</div>
-        </div>
+        <div class="config-item"><div class="config-label">Ciclo</div><div class="config-value">6 meses</div></div>
+        <div class="config-item"><div class="config-label">Mensajes</div><div class="config-value">4 WhatsApp</div></div>
+        <div class="config-item"><div class="config-label">Objetivo</div><div class="config-value">Agendar cita</div></div>
       </div>
     </div>
 
@@ -978,119 +1055,82 @@ body {
           <div class="workflow-icon">💊</div>
           <div>
             <span class="workflow-title">Pastillas para el pelo — Recompra mensual</span>
-            <span class="workflow-trigger">Se activa cuando: paciente selecciona "Pastillas para el pelo" en el formulario QR</span>
+            <span class="workflow-trigger">Activa cuando: paciente selecciona "Pastillas para el pelo" en el formulario QR</span>
           </div>
         </div>
-        <span class="workflow-badge pelo">4 semanas</span>
+        <span class="workflow-badge pelo">Ciclo 28 días</span>
       </div>
-
       <div class="timeline">
-
         <div class="timeline-item">
-          <div class="timeline-left">
-            <div class="timeline-dot">✓</div>
-            <span class="timeline-day">Día 0</span>
-          </div>
+          <div class="timeline-left"><div class="timeline-dot">✓</div><span class="timeline-day">Día 0</span></div>
           <div class="timeline-content">
             <div class="timeline-content-title">Paciente entra al sistema</div>
-            <div class="timeline-content-desc">Escanea QR, selecciona "Pastillas para el pelo". Clientify crea el contacto en la lista "Pelo" y activa el flujo de 28 días.</div>
+            <div class="timeline-content-desc">Escanea QR → selecciona "Pastillas para el pelo" → el CRM activa el ciclo de 28 días automáticamente.</div>
           </div>
         </div>
-
         <div class="timeline-item">
-          <div class="timeline-left">
-            <div class="timeline-dot">📧</div>
-            <span class="timeline-day">Día 3</span>
-          </div>
+          <div class="timeline-left"><div class="timeline-dot">💬</div><span class="timeline-day">Día 3</span></div>
           <div class="timeline-content">
-            <div class="timeline-content-title">Mensaje de bienvenida + instrucciones</div>
-            <div class="timeline-content-desc">Confirma la compra y recuerda cómo tomar las pastillas correctamente. Genera confianza desde el primer día.</div>
+            <div class="timeline-content-title">WhatsApp de bienvenida + instrucciones</div>
+            <div class="timeline-content-desc">Confirma la compra, explica cómo tomar las pastillas y qué esperar. Genera confianza desde el día 1.</div>
             <div class="msg-preview">
-              <p>Hola <strong>[Nombre]</strong> 👋 Gracias por tu compra con la Dra. [Nombre]. Recuerda tomar tu pastilla <strong>siempre a la misma hora</strong> y con el estómago lleno para mejores resultados. Los primeros cambios se notan a partir de la semana 6. ¡Ánimo! 💪</p>
+              <p>Hola <strong>[Nombre]</strong> 👋 Gracias por tu compra con la Dra. Marcela. Recuerda tomar tu pastilla <strong>siempre a la misma hora</strong> y con el estómago lleno para mejores resultados. Los primeros cambios se notan a partir de la semana 6 — ¡constancia es clave! 💪</p>
             </div>
           </div>
         </div>
-
         <div class="timeline-item">
-          <div class="timeline-left">
-            <div class="timeline-dot">📧</div>
-            <span class="timeline-day">Día 14</span>
-          </div>
+          <div class="timeline-left"><div class="timeline-dot">💬</div><span class="timeline-day">Día 14</span></div>
           <div class="timeline-content">
             <div class="timeline-content-title">Check-in de seguimiento</div>
-            <div class="timeline-content-desc">Pregunta cómo van los primeros días. Humaniza la relación y detecta si hay dudas o abandonos tempranos.</div>
+            <div class="timeline-content-desc">Pregunta cómo van las primeras semanas. Humaniza la relación y detecta abandonos tempranos.</div>
             <div class="msg-preview">
-              <p>Hola <strong>[Nombre]</strong>, ya llevas 2 semanas con el tratamiento 🌱 ¿Cómo te ha ido? Si tienes alguna duda sobre el proceso, aquí estamos. Recuerda que la constancia es clave — ¡tú puedes!</p>
+              <p>Hola <strong>[Nombre]</strong>, ya llevas 2 semanas con el tratamiento 🌱 ¿Cómo te ha ido? Si tienes alguna duda sobre el proceso, aquí estamos. ¡Tú puedes!</p>
             </div>
           </div>
         </div>
-
         <div class="timeline-item">
-          <div class="timeline-left">
-            <div class="timeline-dot gold">⏰</div>
-            <span class="timeline-day">Día 21</span>
-          </div>
+          <div class="timeline-left"><div class="timeline-dot gold">⏰</div><span class="timeline-day">Día 21</span></div>
           <div class="timeline-content">
-            <div class="timeline-content-title">🔑 Recordatorio de recompra — mensaje principal</div>
-            <div class="timeline-content-desc">Llega cuando quedan aproximadamente 7 días de pastillas. El paciente aún no se ha quedado sin producto — ese es el momento ideal.</div>
+            <div class="timeline-content-title">🔑 Recordatorio de recompra — mensaje clave</div>
+            <div class="timeline-content-desc">Llega cuando quedan ~7 días de pastillas. La paciente aún no se ha quedado sin producto — ese es el momento ideal para activar la compra.</div>
             <div class="msg-preview">
-              <p>Hola <strong>[Nombre]</strong> 💊 Tu caja de pastillas para el pelo está por terminarse. Para no interrumpir el tratamiento — que es cuando más avanza — te las llevamos a casa por <strong>Q25</strong>. 👇 Haz tu transferencia a: <strong>[Número de cuenta]</strong> y envíanos el comprobante aquí mismo. En 24h las tienes en tu puerta.</p>
+              <p>Hola <strong>[Nombre]</strong> 💊 Tu caja de pastillas para el pelo está por terminarse. Para no interrumpir el tratamiento te las llevamos a casa por <strong>Q25</strong> 🛵<br><br>Transfiere a: <strong>BI · [cuenta] · Marcela Alfaro</strong><br>y envíame el comprobante aquí. En 24h las tienes en tu puerta 📦</p>
             </div>
           </div>
         </div>
-
         <div class="timeline-item">
-          <div class="timeline-left">
-            <div class="timeline-dot gray">💬</div>
-            <span class="timeline-day">Día 24</span>
-          </div>
+          <div class="timeline-left"><div class="timeline-dot gray">💬</div><span class="timeline-day">Día 24</span></div>
           <div class="timeline-content">
             <div class="timeline-content-title">Seguimiento si no respondió</div>
-            <div class="timeline-content-desc">Último recordatorio antes de que se quede sin producto. Si no responde, entra al flujo de reactivación en 30 días.</div>
+            <div class="timeline-content-desc">Último recordatorio. Si no responde, entra al flujo de reactivación en 30 días.</div>
             <div class="msg-preview">
-              <p><strong>[Nombre]</strong>, no queremos que interrumpas tu tratamiento justo cuando está funcionando 🙏 Aún estás a tiempo de recibir tu siguiente caja antes de quedarte sin pastillas. ¿Te la enviamos hoy?</p>
+              <p><strong>[Nombre]</strong>, no queremos que interrumpas justo cuando el tratamiento está funcionando 🙏 ¿Te enviamos tu siguiente caja hoy?</p>
             </div>
           </div>
         </div>
-
         <div class="timeline-item">
-          <div class="timeline-left">
-            <div class="timeline-dot">🔄</div>
-            <span class="timeline-day">Día 28</span>
-          </div>
+          <div class="timeline-left"><div class="timeline-dot">🔄</div><span class="timeline-day">Día 28</span></div>
           <div class="timeline-content">
             <div class="timeline-content-title">Reinicio del ciclo</div>
-            <div class="timeline-content-desc">Si el paciente compró, el flujo se reinicia automáticamente desde el Día 0. Si no compró, entra al flujo de reactivación a los 30 días.</div>
+            <div class="timeline-content-desc">Si compró, el flujo se reinicia automáticamente. Si no, entra al flujo de reactivación a los 30 días.</div>
           </div>
         </div>
-
       </div>
-
       <div class="workflow-config">
-        <div class="config-item">
-          <div class="config-label">Duración del ciclo</div>
-          <div class="config-value">28 días</div>
-        </div>
-        <div class="config-item">
-          <div class="config-label">Mensajes totales</div>
-          <div class="config-value">4 mensajes</div>
-        </div>
-        <div class="config-item">
-          <div class="config-label">Acción requerida</div>
-          <div class="config-value">Transferencia + envío</div>
-        </div>
+        <div class="config-item"><div class="config-label">Ciclo</div><div class="config-value">28 días</div></div>
+        <div class="config-item"><div class="config-label">Mensajes</div><div class="config-value">4 WhatsApp</div></div>
+        <div class="config-item"><div class="config-label">Objetivo</div><div class="config-value">Transferencia + envío</div></div>
       </div>
     </div>
 
-  </div><!-- end workflows -->
+  </div>
 
-  <!-- FOOTER -->
   <div class="doc-footer">
-    <p>Medical Media 360 · <strong>Sistema De Vuelta</strong> · Guatemala</p>
+    <p>Medical Media 360 · <strong>Sistema De Vuelta</strong> · Para: Dra. Marcela Alfaro</p>
     <p>info@medicalmedia360.com · +502 3099 0883</p>
   </div>
 
-</div><!-- end page -->
+</div>
 
 <button class="print-btn no-print" onclick="window.print()">Imprimir / Guardar PDF 🖨️</button>
 
